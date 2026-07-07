@@ -309,6 +309,48 @@
   body.anim .reveal { opacity: 0; transform: translateY(18px); }
   body.anim .reveal.in { opacity: 1; transform: none; }
 
+  /* ── HERO VISION (moved from context) ────────────────── */
+  .hero-vision { margin: 2px 0 34px; max-width: 700px; }
+  .hero-vision-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--green);
+    display: block; margin-bottom: 12px;
+  }
+  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 9px 10px; }
+  .hero-vision li {
+    font-size: 12.5px; color: var(--text-2);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 13px;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-vision li::before { content: '✓'; color: var(--green); font-size: 11px; font-weight: 600; }
+
+  /* ── CHAT BUBBLES (customer quotes) ──────────────────── */
+  .chat { display: flex; flex-direction: column; gap: 10px; }
+  .chat-bubble {
+    align-self: flex-start; max-width: 94%;
+    background: var(--accent-bg); border: 1px solid var(--accent-border);
+    color: var(--text); font-size: 13px; line-height: 1.5;
+    padding: 10px 14px; border-radius: 14px 14px 14px 4px;
+  }
+
+  /* ── REASON LIST (why it stalls) ─────────────────────── */
+  .reason-list { list-style: none; }
+  .reason-list li {
+    font-size: 13px; color: var(--text-2); padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
+  }
+  .reason-list li:last-child { border-bottom: none; }
+  .reason-list li::before { content: '✕'; color: var(--red); flex-shrink: 0; font-size: 11px; margin-top: 3px; }
+
+  /* ── SPLIT (two-column chapter layout) ───────────────── */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .split-col { min-width: 0; }
+  .split .pre-brief { grid-template-columns: 1fr; }
+  .split .fields-grid { grid-template-columns: 1fr 1fr; }
+
   /* Before/after grid */
   .ba-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
@@ -456,6 +498,7 @@
     .hero, section, footer { padding-left: 28px; padding-right: 28px; }
     .hero-stats { flex-wrap: wrap; gap: 28px; }
     .problem-grid, .ba-grid, .fields-grid, .pre-brief { grid-template-columns: 1fr; }
+    .split, .split .fields-grid { grid-template-columns: 1fr; }
     .solution-outcomes { grid-template-columns: 1fr 1fr; }
     .flow-strip { flex-direction: column; }
     .flow-node { border-right: none; border-bottom: 1px solid var(--border); }
@@ -479,7 +522,6 @@
   <span class="nav-logo">TELUS <span>CSS</span> — Outbound Sales</span>
   <div class="nav-links">
     <a href="#solution">The opportunity</a>
-    <a href="#context">Why it matters</a>
   </div>
 </nav>
 
@@ -489,6 +531,15 @@
   <h1 class="hero-title">
     Turning <strong>conversations</strong><br>into usable data
   </h1>
+  <div class="hero-vision">
+    <span class="hero-vision-label">What the program already envisions</span>
+    <ul>
+      <li>Intent-based lists via OCTO (who to call, what to offer, when)</li>
+      <li>Pre-call brief surfaced automatically at connect</li>
+      <li>Relationship continuity across agents</li>
+      <li>Next-best-action from Fuel iX during live calls</li>
+    </ul>
+  </div>
   <p class="hero-sub">
     A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
   </p>
@@ -565,12 +616,14 @@
       <p class="chapter-lede">Every call contains rich customer context — but today nearly all of it is lost the moment the call ends. Forty-five days later, a different agent calls the same person with no context. The customer remembers. The agent doesn't.</p>
       <div class="ba-grid">
         <div class="ba-card">
-          <div class="ba-label said">What was said on the call</div>
-          <div class="ba-item">"I'm with Bell, 6 months left on contract"</div>
-          <div class="ba-item">"Price is a bit high for me right now"</div>
-          <div class="ba-item">"Don't call me before noon, I work nights"</div>
-          <div class="ba-item">"My wife might be interested in home internet"</div>
-          <div class="ba-item">"I love watching sports, especially hockey"</div>
+          <div class="ba-label said">What a customer actually says</div>
+          <div class="chat">
+            <div class="chat-bubble">I'm with Bell, 6 months left on contract</div>
+            <div class="chat-bubble">Price is a bit high for me right now</div>
+            <div class="chat-bubble">Don't call me before noon, I work nights</div>
+            <div class="chat-bubble">My wife might be interested in home internet</div>
+            <div class="chat-bubble">I love watching sports, especially hockey</div>
+          </div>
         </div>
         <div class="ba-card">
           <div class="ba-label recorded">What gets recorded in the system</div>
@@ -585,6 +638,14 @@
         <p>"Right now our disposition codes suck... sale, no sale, call back later, not interested. It doesn't tell me anything about the customer."</p>
         <cite>— Edward Zhao, Director Global Sales Operations</cite>
       </div>
+
+      <div class="sub-label">Why it stalls without this solution</div>
+      <ul class="reason-list">
+        <li>OCTO cannot build intent-based lists without structured input data</li>
+        <li>Pre-call briefs are empty if nothing was captured from prior calls</li>
+        <li>Relationship continuity requires the CRM to hold the relationship</li>
+        <li>Fuel iX recommendations are only as good as the context fed in</li>
+      </ul>
     </div>
 
     <!-- Chapter 2 — the solution, working -->
@@ -594,30 +655,35 @@
       <h3 class="chapter-title">The co-pilot reads the transcript and suggests structured fields</h3>
       <p class="chapter-lede">The same call, captured. Fuel iX analyses the transcript and surfaces field suggestions — the agent confirms in one tap. The AI suggests, the human verifies.</p>
 
-      <div class="sub-label">The conversation</div>
-      <div class="transcript">
-        <div class="transcript-hdr"><div class="rec-dot"></div>Outbound call — James Martin, Calgary AB</div>
-        <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">Hi James, calling from TELUS. Got a moment?</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Sure, what's this about?</span></div>
-        <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">We have an offer on mobile plans — thought it might suit you.</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Actually I'm with <em>Bell</em> right now. Got about <em>6 months left</em> on my contract.</span></div>
-        <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">And what about home internet — do you have that with them too?</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">No, my <em>wife</em> handles that side. She's been looking around. We like to watch <em>hockey</em>, so a good sports package matters.</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Pricing is the main thing — <em>a bit high</em> for what I'm seeing.</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Also — <em>don't call before noon</em>. I'm on night shifts.</span></div>
+      <div class="split">
+        <div class="split-col">
+          <div class="sub-label">The conversation</div>
+          <div class="transcript">
+            <div class="transcript-hdr"><div class="rec-dot"></div>Outbound call — James Martin, Calgary AB</div>
+            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">Hi James, calling from TELUS. Got a moment?</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Sure, what's this about?</span></div>
+            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">We have an offer on mobile plans — thought it might suit you.</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Actually I'm with <em>Bell</em> right now. Got about <em>6 months left</em> on my contract.</span></div>
+            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">And what about home internet — do you have that with them too?</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">No, my <em>wife</em> handles that side. She's been looking around. We like to watch <em>hockey</em>, so a good sports package matters.</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Pricing is the main thing — <em>a bit high</em> for what I'm seeing.</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Also — <em>don't call before noon</em>. I'm on night shifts.</span></div>
+          </div>
+          <p class="t-note">↑ amber highlights = structured facts available from transcript analysis</p>
+        </div>
+        <div class="split-col">
+          <div class="sub-label">What the co-pilot captures</div>
+          <div class="fields-grid">
+            <div class="field-card"><div class="field-key">Competitor</div><div class="field-val">Bell</div></div>
+            <div class="field-card"><div class="field-key">Contract end (est.)</div><div class="field-val">~6 months</div></div>
+            <div class="field-card"><div class="field-key">Decline reason</div><div class="field-val">Price</div></div>
+            <div class="field-card"><div class="field-key">Call-back preference</div><div class="field-val">After noon (night shifts)</div></div>
+            <div class="field-card"><div class="field-key">Interests</div><div class="field-val">Hockey / sports TV</div></div>
+            <div class="field-card"><div class="field-key">Cross-sell signal</div><div class="field-val">Home internet — wife researching</div></div>
+          </div>
+          <div class="confirm-banner">Agent reviews and confirms in one tap. Fields write to CRM. Call wraps in 60 seconds. The hard part is the governed schema — not the AI extraction.</div>
+        </div>
       </div>
-      <p class="t-note">↑ amber highlights = structured facts available from transcript analysis</p>
-
-      <div class="sub-label">What the co-pilot captures</div>
-      <div class="fields-grid">
-        <div class="field-card"><div class="field-key">Competitor</div><div class="field-val">Bell</div></div>
-        <div class="field-card"><div class="field-key">Contract end (est.)</div><div class="field-val">~6 months</div></div>
-        <div class="field-card"><div class="field-key">Decline reason</div><div class="field-val">Price</div></div>
-        <div class="field-card"><div class="field-key">Call-back preference</div><div class="field-val">After noon (night shifts)</div></div>
-        <div class="field-card"><div class="field-key">Interests</div><div class="field-val">Hockey / sports TV</div></div>
-        <div class="field-card"><div class="field-key">Cross-sell signal</div><div class="field-val">Home internet — wife researching</div></div>
-      </div>
-      <div class="confirm-banner">Agent reviews and confirms in one tap. Fields write to CRM. Call wraps in 60 seconds. The hard part is the governed schema — not the AI extraction.</div>
     </div>
 
     <!-- Chapter 3 — the future state -->
@@ -657,50 +723,31 @@
     <div class="chapter win reveal">
       <div class="chapter-node">04</div>
       <div class="chapter-kicker">The payoff · five months later</div>
-      <h3 class="chapter-title">Five months later — a completely different conversation</h3>
+      <h3 class="chapter-title">Sharper targeting and relationship continuity close the sale</h3>
       <p class="chapter-lede">The next agent picks up the relationship, not a cold list. The data did the work.</p>
-      <div class="pre-brief">
-        <div class="brief-card"><div class="brief-key">Last contacted</div><div class="brief-val">~5 months ago</div></div>
-        <div class="brief-card"><div class="brief-key">Contract status</div><div class="brief-val warn">Likely ending soon</div></div>
-        <div class="brief-card"><div class="brief-key">Suggested offer</div><div class="brief-val">Sports bundle + home internet</div></div>
-        <div class="brief-card"><div class="brief-key">Best time to call</div><div class="brief-val">After noon</div></div>
+      <div class="split">
+        <div class="split-col">
+          <div class="sub-label">What the Agent knows</div>
+          <div class="pre-brief">
+            <div class="brief-card"><div class="brief-key">Last contacted</div><div class="brief-val">~5 months ago</div></div>
+            <div class="brief-card"><div class="brief-key">Contract status</div><div class="brief-val warn">Likely ending soon</div></div>
+            <div class="brief-card"><div class="brief-key">Suggested offer</div><div class="brief-val">Sports bundle + home internet</div></div>
+            <div class="brief-card"><div class="brief-key">Best time to call</div><div class="brief-val">After noon</div></div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="sub-label">What the Agent says</div>
+          <div class="transcript">
+            <div class="transcript-hdr"><div class="rec-dot"></div>Follow-up call — James Martin, 5 months later</div>
+            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">"Hi James — we spoke a few months back. I know your Bell contract is probably wrapping up soon. I also noticed you're a hockey fan — we just launched a sports bundle I think you'd like."</span></div>
+            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">"Oh — yeah, actually the timing is good. Tell me more."</span></div>
+          </div>
+          <div class="result-banner">This is what 33% conversion looks like. Not a magic offer — just an agent who sounds like they know the customer. The data did the work — and the same mechanism scales to every call in the operation.</div>
+        </div>
       </div>
-      <div class="transcript">
-        <div class="transcript-hdr"><div class="rec-dot"></div>Follow-up call — James Martin, 5 months later</div>
-        <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">"Hi James — we spoke a few months back. I know your Bell contract is probably wrapping up soon. I also noticed you're a hockey fan — we just launched a sports bundle I think you'd like."</span></div>
-        <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">"Oh — yeah, actually the timing is good. Tell me more."</span></div>
-      </div>
-      <div class="result-banner">This is what 33% conversion looks like. Not a magic offer — just an agent who sounds like they know the customer. The data did the work — and the same mechanism scales to every call in the operation.</div>
     </div>
 
   </div><!-- /story -->
-</section>
-
-<!-- ── STRATEGIC CONTEXT ───────────────────────────────────── -->
-<section id="context">
-  <div class="section-eyebrow">02 — context</div>
-  <h2 class="section-title">Why this is the foundation, not the feature</h2>
-  <p class="section-sub">The entire BoB vision — smarter lists, better targeting, relationship continuity — rests on one thing: structured data from every call.</p>
-  <div class="problem-grid">
-    <div class="problem-card" style="border-radius:10px 0 0 10px">
-      <div class="problem-card-label ok" style="color:var(--text-3)">What the program already envisions</div>
-      <ul class="quote-list">
-        <li>Intent-based lists via OCTO (who to call, what to offer, when)</li>
-        <li>Pre-call brief surfaced automatically at connect</li>
-        <li>Relationship continuity across agents</li>
-        <li>Next-best-action from Fuel iX during live calls</li>
-      </ul>
-    </div>
-    <div class="problem-card" style="border-radius:0 10px 10px 0">
-      <div class="problem-card-label bad">Why it stalls without this solution</div>
-      <ul class="quote-list">
-        <li>OCTO cannot build intent-based lists without structured input data</li>
-        <li>Pre-call briefs are empty if nothing was captured from prior calls</li>
-        <li>Relationship continuity requires the CRM to hold the relationship</li>
-        <li>Fuel iX recommendations are only as good as the context fed in</li>
-      </ul>
-    </div>
-  </div>
 </section>
 
 <!-- ── FOOTER ──────────────────────────────────────────────── -->
