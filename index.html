@@ -5,28 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TELUS Outbound Sales — Conversion Opportunities</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root {
-    --bg: #0f0f0f;
-    --surface: #161616;
-    --surface-2: #1e1e1e;
-    --border: rgba(255,255,255,0.08);
-    --border-strong: rgba(255,255,255,0.14);
-    --text: #f0f0ee;
-    --text-2: #9a9896;
-    --text-3: #5c5a57;
-    --accent: #4f8ef7;
-    --accent-bg: rgba(79,142,247,0.1);
-    --accent-border: rgba(79,142,247,0.25);
-    --green: #3ecf8e;
-    --green-bg: rgba(62,207,142,0.1);
-    --green-border: rgba(62,207,142,0.2);
-    --amber: #f0a05a;
-    --amber-bg: rgba(240,160,90,0.12);
-    --amber-border: rgba(240,160,90,0.25);
-    --red: #f06a6a;
-    --red-bg: rgba(240,106,106,0.1);
+    /* Carbon G10 Light — base layer */
+    --bg: #f4f4f4;          /* gray-10 */
+    --surface: #ffffff;     /* white */
+    --surface-2: #f4f4f4;   /* gray-10 — subtle nested bg */
+    --border: #e0e0e0;      /* gray-20 */
+    --border-strong: #c6c6c6; /* gray-30 */
+    --text: #161616;        /* gray-100 */
+    --text-2: #525252;      /* gray-70 */
+    --text-3: #8d8d8d;      /* gray-50 */
+
+    /* Carbon Purple — primary interactive */
+    --accent: #6929c4;         /* purple-70 */
+    --accent-bg: #f6f2ff;      /* purple-10 */
+    --accent-border: #d4bbff;  /* purple-30 */
+
+    /* Carbon Green — secondary / success */
+    --green: #198038;          /* green-60 */
+    --green-bg: #defbe6;       /* green-10 */
+    --green-border: #a7f0ba;   /* green-20 */
+
+    /* Carbon Orange — warning / callout */
+    --amber: #8a3800;          /* orange-70 */
+    --amber-bg: #fff2e8;       /* orange-10 */
+    --amber-border: #ffb784;   /* orange-30 */
+
+    /* Carbon Red — error / danger */
+    --red: #da1e28;            /* red-60 */
+    --red-bg: #fff1f1;         /* red-10 */
+
     --mono: 'IBM Plex Mono', monospace;
   }
 
@@ -35,7 +45,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     font-size: 15px;
@@ -47,7 +57,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     height: 52px;
-    background: rgba(15,15,15,0.9);
+    background: rgba(244,244,244,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; padding: 0 32px;
@@ -76,7 +86,7 @@
     content: '';
     position: absolute; top: -200px; right: -100px;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(79,142,247,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(105,41,196,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-eyebrow {
@@ -405,7 +415,7 @@
     display: flex; align-items: center; gap: 10px;
   }
   .btn {
-    padding: 8px 20px; font-size: 12px; font-family: 'Inter', sans-serif;
+    padding: 8px 20px; font-size: 12px; font-family: 'IBM Plex Sans', sans-serif;
     border-radius: 6px; cursor: pointer; transition: all .12s;
     border: 1px solid var(--border-strong); background: none;
     color: var(--text-2);
