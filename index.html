@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELUS Outbound Sales — Conversion Opportunities</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0f0f0f;
+    --surface: #161616;
+    --surface-2: #1e1e1e;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --text: #f0f0ee;
+    --text-2: #9a9896;
+    --text-3: #5c5a57;
+    --accent: #4f8ef7;
+    --accent-bg: rgba(79,142,247,0.1);
+    --accent-border: rgba(79,142,247,0.25);
+    --green: #3ecf8e;
+    --green-bg: rgba(62,207,142,0.1);
+    --green-border: rgba(62,207,142,0.2);
+    --amber: #f0a05a;
+    --amber-bg: rgba(240,160,90,0.12);
+    --amber-border: rgba(240,160,90,0.25);
+    --red: #f06a6a;
+    --red-bg: rgba(240,106,106,0.1);
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ──────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 52px;
+    background: rgba(15,15,15,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 32px;
+    z-index: 100; gap: 32px;
+  }
+  .nav-logo {
+    font-size: 12px; font-weight: 500; letter-spacing: .08em;
+    color: var(--text-2); text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 24px; margin-left: auto; }
+  .nav-links a {
+    font-size: 12px; color: var(--text-3); text-decoration: none;
+    transition: color .15s; letter-spacing: .04em;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 80px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(79,142,247,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: .12em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 20px;
+    font-family: var(--mono);
+  }
+  .hero-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 300; line-height: 1.1;
+    letter-spacing: -.02em; max-width: 820px;
+    margin-bottom: 28px;
+  }
+  .hero-title strong { font-weight: 500; color: var(--text); }
+  .hero-sub {
+    font-size: 17px; color: var(--text-2); max-width: 520px;
+    line-height: 1.7; margin-bottom: 48px;
+  }
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 8px;
+  }
+  .stat-item {}
+  .stat-num {
+    font-size: 36px; font-weight: 300; letter-spacing: -.03em;
+    color: var(--text); font-family: var(--mono);
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 80px;
+    font-size: 11px; color: var(--text-3); letter-spacing: .08em;
+    font-family: var(--mono);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-scroll::before {
+    content: ''; width: 28px; height: 1px; background: var(--text-3);
+  }
+
+  /* ── SECTIONS ─────────────────────────────────────────── */
+  section { padding: 96px 80px; border-top: 1px solid var(--border); }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: .12em;
+    color: var(--text-3); text-transform: uppercase;
+    font-family: var(--mono); margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 300;
+    letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 15px; color: var(--text-2); max-width: 560px;
+    line-height: 1.7; margin-bottom: 56px;
+  }
+
+  /* ── DIVIDER ──────────────────────────────────────────── */
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ── PROBLEM SECTION ─────────────────────────────────── */
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+    margin-bottom: 40px;
+  }
+  .problem-card {
+    background: var(--surface); padding: 28px 32px;
+    border: 1px solid var(--border);
+  }
+  .problem-card:first-child { border-radius: 10px 0 0 10px; }
+  .problem-card:last-child { border-radius: 0 10px 10px 0; }
+  .problem-card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; font-family: var(--mono);
+    margin-bottom: 16px;
+  }
+  .problem-card-label.bad { color: var(--red); }
+  .problem-card-label.ok { color: var(--text-3); }
+  .quote-list { list-style: none; }
+  .quote-list li {
+    font-size: 13px; color: var(--text-2); padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+  }
+  .quote-list li:last-child { border-bottom: none; }
+  .quote-list li::before { content: '"'; color: var(--text-3); flex-shrink: 0; margin-top: 1px; }
+  .disposition-list { list-style: none; }
+  .disposition-list li {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-3); padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px; align-items: center;
+  }
+  .disposition-list li:last-child { border-bottom: none; }
+  .d-tag {
+    background: var(--surface-2); border: 1px solid var(--border-strong);
+    padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    color: var(--text-3);
+  }
+  .edward-quote {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--amber); border-radius: 8px;
+    padding: 24px 28px; margin-top: 32px;
+  }
+  .edward-quote p {
+    font-size: 15px; color: var(--text-2); font-style: italic;
+    line-height: 1.7; margin-bottom: 10px;
+  }
+  .edward-quote cite {
+    font-size: 12px; color: var(--text-3); font-style: normal;
+    font-family: var(--mono);
+  }
+
+  /* ── SOLUTION SECTION ────────────────────────────────── */
+  #solution { background: var(--surface); }
+
+  .solution-header {
+    display: flex; gap: 64px; margin-bottom: 56px; align-items: flex-start;
+  }
+  .solution-header-text { flex: 1; }
+  .solution-outcomes {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    width: 320px; flex-shrink: 0;
+  }
+  .outcome-pill {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .outcome-pill-icon {
+    font-size: 14px; margin-bottom: 6px;
+  }
+  .outcome-pill-title {
+    font-size: 12px; font-weight: 500; color: var(--text);
+    margin-bottom: 3px;
+  }
+  .outcome-pill-desc {
+    font-size: 11px; color: var(--text-3); line-height: 1.5;
+  }
+
+  /* ── STEPPER ─────────────────────────────────────────── */
+  .stepper-wrap {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .stepper-nav {
+    display: flex; border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .stepper-nav::-webkit-scrollbar { height: 3px; }
+  .stepper-nav::-webkit-scrollbar-track { background: transparent; }
+  .stepper-nav::-webkit-scrollbar-thumb { background: var(--border-strong); }
+  .step-tab {
+    padding: 14px 20px; font-size: 12px; font-weight: 400;
+    color: var(--text-3); cursor: pointer; white-space: nowrap;
+    border-right: 1px solid var(--border);
+    transition: all .15s; background: none; border-top: none;
+    border-left: none; border-bottom: none; display: flex;
+    align-items: center; gap: 8px;
+  }
+  .step-tab:last-child { border-right: none; }
+  .step-tab:hover { color: var(--text-2); background: rgba(255,255,255,0.02); }
+  .step-tab.active {
+    color: var(--text); background: rgba(255,255,255,0.03);
+    box-shadow: inset 0 -2px 0 var(--accent);
+  }
+  .step-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--surface-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-family: var(--mono); flex-shrink: 0;
+    color: var(--text-3);
+  }
+  .step-tab.active .step-num {
+    background: var(--accent-bg); border-color: var(--accent);
+    color: var(--accent);
+  }
+  .step-tab.done .step-num {
+    background: var(--green-bg); border-color: var(--green);
+    color: var(--green);
+  }
+
+  .stepper-body { padding: 36px 40px; min-height: 420px; }
+  .step-panel { display: none; }
+  .step-panel.active { display: block; }
+
+  .step-title-sm {
+    font-size: 22px; font-weight: 300; letter-spacing: -.01em;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .step-desc { font-size: 13px; color: var(--text-2); margin-bottom: 28px; line-height: 1.6; }
+
+  /* Before/after grid */
+  .ba-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .ba-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 20px;
+  }
+  .ba-label {
+    font-size: 10px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: .1em; font-family: var(--mono); margin-bottom: 14px;
+  }
+  .ba-label.said { color: var(--text-2); }
+  .ba-label.recorded { color: var(--red); }
+  .ba-item {
+    font-size: 12px; padding: 7px 0;
+    border-bottom: 1px solid var(--border); color: var(--text-2);
+    line-height: 1.5;
+  }
+  .ba-item:last-child { border-bottom: none; }
+  .ba-item.empty { color: var(--text-3); font-style: italic; }
+
+  /* Transcript */
+  .transcript {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; margin-bottom: 12px;
+  }
+  .transcript-hdr {
+    padding: 10px 16px; border-bottom: 1px solid var(--border);
+    font-size: 11px; font-family: var(--mono); color: var(--text-3);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .rec-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--red); flex-shrink: 0;
+  }
+  .t-line {
+    display: flex; gap: 12px; padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .t-line:last-child { border-bottom: none; }
+  .t-speaker {
+    font-size: 10px; font-weight: 500; font-family: var(--mono);
+    min-width: 52px; padding-top: 2px; color: var(--text-3);
+  }
+  .t-speaker.agent { color: var(--accent); }
+  .t-speech { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+  .t-speech em {
+    font-style: normal; background: var(--amber-bg);
+    color: var(--amber); border-radius: 3px; padding: 0 4px;
+    border: 1px solid var(--amber-border);
+  }
+  .t-note {
+    font-size: 11px; color: var(--text-3); margin-top: 10px;
+    font-family: var(--mono);
+  }
+
+  /* Field suggestions */
+  .fields-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-bottom: 16px;
+  }
+  .field-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 12px 14px;
+  }
+  .field-key { font-size: 10px; color: var(--text-3); margin-bottom: 4px; font-family: var(--mono); }
+  .field-val { font-size: 13px; font-weight: 500; color: var(--green); }
+
+  .confirm-banner {
+    background: var(--accent-bg); border: 1px solid var(--accent-border);
+    border-radius: 8px; padding: 14px 18px;
+    font-size: 13px; color: var(--accent); line-height: 1.6;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .confirm-banner::before { content: '✓'; font-weight: 600; flex-shrink: 0; }
+
+  /* Flow */
+  .flow-strip {
+    display: flex; align-items: center; gap: 0;
+    margin-bottom: 20px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden;
+  }
+  .flow-node {
+    flex: 1; padding: 16px 18px;
+    border-right: 1px solid var(--border);
+    font-size: 12px;
+  }
+  .flow-node:last-child { border-right: none; }
+  .flow-node.highlighted {
+    background: var(--accent-bg); border-color: var(--accent-border);
+  }
+  .flow-node-label {
+    font-size: 10px; font-family: var(--mono); color: var(--text-3);
+    margin-bottom: 4px; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .flow-node.highlighted .flow-node-label { color: var(--accent); }
+  .flow-node-val { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+  .flow-node.highlighted .flow-node-val { color: var(--text); }
+  .flow-arrow {
+    padding: 0 2px; color: var(--text-3); font-size: 14px; flex-shrink: 0;
+  }
+
+  .pills-wrap { margin-bottom: 20px; }
+  .pill {
+    display: inline-block; font-size: 11px; padding: 4px 10px;
+    border-radius: 20px; margin: 0 4px 6px 0; font-family: var(--mono);
+  }
+  .pill-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .pill-teal { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .pill-blue { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
+
+  /* Final call panel */
+  .pre-brief {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-bottom: 20px;
+  }
+  .brief-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 12px 14px;
+  }
+  .brief-key { font-size: 10px; color: var(--text-3); margin-bottom: 4px; font-family: var(--mono); }
+  .brief-val { font-size: 13px; font-weight: 400; color: var(--text-2); }
+  .brief-val.warn { color: var(--amber); }
+
+  .result-banner {
+    background: var(--green-bg); border: 1px solid var(--green-border);
+    border-radius: 8px; padding: 16px 20px; margin-top: 20px;
+    font-size: 13px; color: var(--green); line-height: 1.7;
+  }
+
+  /* Stepper controls */
+  .stepper-footer {
+    padding: 16px 40px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .btn {
+    padding: 8px 20px; font-size: 12px; font-family: 'Inter', sans-serif;
+    border-radius: 6px; cursor: pointer; transition: all .12s;
+    border: 1px solid var(--border-strong); background: none;
+    color: var(--text-2);
+  }
+  .btn:hover { background: var(--surface-2); color: var(--text); }
+  .btn.primary {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+  }
+  .btn.primary:hover { opacity: .9; }
+  .stepper-counter {
+    font-size: 11px; color: var(--text-3); margin-left: auto;
+    font-family: var(--mono);
+  }
+
+  /* ── FOOTER ───────────────────────────────────────────── */
+  footer {
+    padding: 40px 80px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 24px;
+  }
+  footer p { font-size: 12px; color: var(--text-3); }
+  footer span { color: var(--text-3); margin: 0 8px; }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero, section, footer { padding-left: 28px; padding-right: 28px; }
+    .hero-stats { flex-wrap: wrap; gap: 28px; }
+    .problem-grid, .ba-grid, .fields-grid, .pre-brief { grid-template-columns: 1fr; }
+    .solution-header { flex-direction: column; }
+    .solution-outcomes { width: 100%; }
+    .flow-strip { flex-direction: column; }
+    .flow-node { border-right: none; border-bottom: 1px solid var(--border); }
+    .flow-node:last-child { border-bottom: none; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .stepper-body { padding: 24px 20px; }
+    .stepper-footer { padding: 14px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">TELUS <span>CSS</span> — Outbound Sales</span>
+  <div class="nav-links">
+    <a href="#problem">The problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#context">Context</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">Conversion opportunities — outbound sales</div>
+  <h1 class="hero-title">
+    Turning <strong>conversations</strong><br>into usable data
+  </h1>
+  <p class="hero-sub">
+    A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
+  </p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">33<span>%</span></div>
+      <div class="stat-label">conversion — BoB warm call</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2–4<span>%</span></div>
+      <div class="stat-label">conversion — standard cold call</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4M</div>
+      <div class="stat-label">outbound calls per month</div>
+    </div>
+  </div>
+  <div class="hero-scroll">scroll to explore</div>
+</section>
+
+<!-- ── PROBLEM ────────────────────────────────────────────── -->
+<section id="problem">
+  <div class="section-eyebrow">01 — context</div>
+  <h2 class="section-title">What agents hear is not what gets recorded</h2>
+  <p class="section-sub">Every call contains rich customer context. Today, nearly all of it is lost the moment the call ends.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-card-label ok">What a customer actually says</div>
+      <ul class="quote-list">
+        <li>I'm with Bell, 6 months left on contract</li>
+        <li>Price is a bit high for me right now</li>
+        <li>Don't call me before noon, I work nights</li>
+        <li>My wife might be interested in home internet</li>
+        <li>We love watching hockey — sports package matters</li>
+      </ul>
+    </div>
+    <div class="problem-card">
+      <div class="problem-card-label bad">What gets recorded in the system</div>
+      <ul class="disposition-list">
+        <li><span class="d-tag">no sale</span></li>
+        <li><span class="d-tag">call back later</span></li>
+        <li style="opacity:.3"><span class="d-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+        <li style="opacity:.15"><span class="d-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+        <li style="opacity:.07"><span class="d-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="edward-quote">
+    <p>"Right now our disposition codes suck... sale, no sale, call back later, not interested. It doesn't tell me anything about the customer."</p>
+    <cite>— Edward Zhao, Director Global Sales Operations</cite>
+  </div>
+</section>
+
+<!-- ── SOLUTION ───────────────────────────────────────────── -->
+<section id="solution">
+  <div class="section-eyebrow">02 — solution</div>
+  <h2 class="section-title">Turn conversations into usable data</h2>
+  <p class="section-sub">Capture key facts from each call as structured data the business can act on — enabling richer profiles, sharper targeting, and context for every future agent.</p>
+
+  <div class="solution-header">
+    <div class="solution-header-text"></div>
+    <div class="solution-outcomes">
+      <div class="outcome-pill">
+        <div class="outcome-pill-icon">◎</div>
+        <div class="outcome-pill-title">Richer profiles</div>
+        <div class="outcome-pill-desc">Facts from every call build a real picture over time</div>
+      </div>
+      <div class="outcome-pill">
+        <div class="outcome-pill-icon">◎</div>
+        <div class="outcome-pill-title">Sharper targeting</div>
+        <div class="outcome-pill-desc">OCTO uses the data to route the right contact at the right moment</div>
+      </div>
+      <div class="outcome-pill">
+        <div class="outcome-pill-icon">◎</div>
+        <div class="outcome-pill-title">Context to next agent</div>
+        <div class="outcome-pill-desc">Continuity in the system, not the person</div>
+      </div>
+      <div class="outcome-pill">
+        <div class="outcome-pill-icon">◎</div>
+        <div class="outcome-pill-title">Next-best-action AI</div>
+        <div class="outcome-pill-desc">Fuel iX guidance mid-call from live transcripts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEPPER -->
+  <div class="stepper-wrap">
+    <div class="stepper-nav" role="tablist">
+      <button class="step-tab active" role="tab" onclick="goStep(0)">
+        <span class="step-num">1</span>The problem
+      </button>
+      <button class="step-tab" role="tab" onclick="goStep(1)">
+        <span class="step-num">2</span>The call
+      </button>
+      <button class="step-tab" role="tab" onclick="goStep(2)">
+        <span class="step-num">3</span>The AI layer
+      </button>
+      <button class="step-tab" role="tab" onclick="goStep(3)">
+        <span class="step-num">4</span>Data flows
+      </button>
+      <button class="step-tab" role="tab" onclick="goStep(4)">
+        <span class="step-num">5</span>The next call
+      </button>
+    </div>
+
+    <div class="stepper-body">
+
+      <!-- Step 1 -->
+      <div class="step-panel active" id="panel-0">
+        <h3 class="step-title-sm">Every call disappears into a recording nobody uses</h3>
+        <p class="step-desc">45 days later, a different agent calls the same person with no context. The customer remembers. The agent doesn't.</p>
+        <div class="ba-grid">
+          <div class="ba-card">
+            <div class="ba-label said">What was said on the call</div>
+            <div class="ba-item">"I'm with Bell, 6 months left on contract"</div>
+            <div class="ba-item">"Price is a bit high for me right now"</div>
+            <div class="ba-item">"Don't call me before noon, I work nights"</div>
+            <div class="ba-item">"My wife might be interested in home internet"</div>
+            <div class="ba-item">"I love watching sports, especially hockey"</div>
+          </div>
+          <div class="ba-card">
+            <div class="ba-label recorded">What gets recorded in the system</div>
+            <div class="ba-item" style="font-family:var(--mono);font-size:12px;color:var(--text-3)">no sale</div>
+            <div class="ba-item" style="font-family:var(--mono);font-size:12px;color:var(--text-3)">call back later</div>
+            <div class="ba-item empty">&nbsp;</div>
+            <div class="ba-item empty">&nbsp;</div>
+            <div class="ba-item empty">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-panel" id="panel-1">
+        <h3 class="step-title-sm">A live conversation, with facts hiding in plain sight</h3>
+        <p class="step-desc">Six valuable signals from a single call with James — highlighted in amber. Today, all six evaporate when the call ends.</p>
+        <div class="transcript">
+          <div class="transcript-hdr"><div class="rec-dot"></div>Outbound call — James Martin, Calgary AB</div>
+          <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">Hi James, calling from TELUS. Got a moment?</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Sure, what's this about?</span></div>
+          <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">We have an offer on mobile plans — thought it might suit you.</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Actually I'm with <em>Bell</em> right now. Got about <em>6 months left</em> on my contract.</span></div>
+          <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">And what about home internet — do you have that with them too?</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">No, my <em>wife</em> handles that side. She's been looking around. We like to watch <em>hockey</em>, so a good sports package matters.</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Pricing is the main thing — <em>a bit high</em> for what I'm seeing.</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Also — <em>don't call before noon</em>. I'm on night shifts.</span></div>
+        </div>
+        <p class="t-note">↑ amber highlights = structured facts available from transcript analysis</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-panel" id="panel-2">
+        <h3 class="step-title-sm">The co-pilot reads the transcript and suggests structured fields</h3>
+        <p class="step-desc">Fuel iX analyses the call transcript and surfaces field suggestions. The agent confirms in one tap — the AI suggests, the human verifies.</p>
+        <div class="fields-grid">
+          <div class="field-card"><div class="field-key">Competitor</div><div class="field-val">Bell</div></div>
+          <div class="field-card"><div class="field-key">Contract end (est.)</div><div class="field-val">~6 months</div></div>
+          <div class="field-card"><div class="field-key">Decline reason</div><div class="field-val">Price</div></div>
+          <div class="field-card"><div class="field-key">Call-back preference</div><div class="field-val">After noon (night shifts)</div></div>
+          <div class="field-card"><div class="field-key">Interests</div><div class="field-val">Hockey / sports TV</div></div>
+          <div class="field-card"><div class="field-key">Cross-sell signal</div><div class="field-val">Home internet — wife researching</div></div>
+        </div>
+        <div class="confirm-banner">Agent reviews and confirms in one tap. Fields write to CRM. Call wraps in 60 seconds. The hard part is the governed schema — not the AI extraction.</div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-panel" id="panel-3">
+        <h3 class="step-title-sm">Structured facts feed three downstream systems</h3>
+        <p class="step-desc">Once confirmed, the data flows automatically — enriching James's profile, informing OCTO's list intelligence, and surfacing context for the next agent.</p>
+        <div class="flow-strip">
+          <div class="flow-node highlighted">
+            <div class="flow-node-label">CRM (Zoho)</div>
+            <div class="flow-node-val">Stores James's profile with all confirmed attributes</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">
+            <div class="flow-node-label">OCTO / DBM</div>
+            <div class="flow-node-val">Builds smarter, intent-based call lists</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">
+            <div class="flow-node-label">Next agent's brief</div>
+            <div class="flow-node-val">Context surfaced at the moment of connect</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--text-3);margin-bottom:12px;font-family:var(--mono)">What OCTO now knows about James:</p>
+        <div class="pills-wrap">
+          <span class="pill pill-amber">Bell — 6 months left</span>
+          <span class="pill pill-amber">Declined: price</span>
+          <span class="pill pill-blue">Re-contact: after noon</span>
+          <span class="pill pill-teal">Cross-sell: home internet</span>
+          <span class="pill pill-teal">Interest: sports TV</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-2);line-height:1.6">OCTO scores James's intent: re-contact at ~5 months when Bell contract is near expiry. Route to an FFH-trained agent. Lead with value — the sports bundle — not price.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-panel" id="panel-4">
+        <h3 class="step-title-sm">Five months later — a completely different conversation</h3>
+        <p class="step-desc">The next agent picks up the relationship, not a cold list. The data did the work.</p>
+        <div class="pre-brief">
+          <div class="brief-card"><div class="brief-key">Last contacted</div><div class="brief-val">~5 months ago</div></div>
+          <div class="brief-card"><div class="brief-key">Contract status</div><div class="brief-val warn">Likely ending soon</div></div>
+          <div class="brief-card"><div class="brief-key">Suggested offer</div><div class="brief-val">Sports bundle + home internet</div></div>
+          <div class="brief-card"><div class="brief-key">Best time to call</div><div class="brief-val">After noon</div></div>
+        </div>
+        <div class="transcript">
+          <div class="transcript-hdr"><div class="rec-dot"></div>Follow-up call — James Martin, 5 months later</div>
+          <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">"Hi James — we spoke a few months back. I know your Bell contract is probably wrapping up soon. I also noticed you're a hockey fan — we just launched a sports bundle I think you'd like."</span></div>
+          <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">"Oh — yeah, actually the timing is good. Tell me more."</span></div>
+        </div>
+        <div class="result-banner">This is what 33% conversion looks like. Not a magic offer — just an agent who sounds like they know the customer. The data did the work. The same mechanism scales to every call in the operation.</div>
+      </div>
+
+    </div><!-- /stepper-body -->
+
+    <div class="stepper-footer">
+      <button class="btn" id="btn-prev" onclick="prevStep()" style="display:none">Back</button>
+      <button class="btn primary" id="btn-next" onclick="nextStep()">Next →</button>
+      <span class="stepper-counter" id="step-counter">1 / 5</span>
+    </div>
+  </div><!-- /stepper-wrap -->
+</section>
+
+<!-- ── STRATEGIC CONTEXT ───────────────────────────────────── -->
+<section id="context">
+  <div class="section-eyebrow">03 — context</div>
+  <h2 class="section-title">Why this is the foundation, not the feature</h2>
+  <p class="section-sub">The entire BoB vision — smarter lists, better targeting, relationship continuity — rests on one thing: structured data from every call.</p>
+  <div class="problem-grid">
+    <div class="problem-card" style="border-radius:10px 0 0 10px">
+      <div class="problem-card-label ok" style="color:var(--text-3)">What the program already envisions</div>
+      <ul class="quote-list">
+        <li>Intent-based lists via OCTO (who to call, what to offer, when)</li>
+        <li>Pre-call brief surfaced automatically at connect</li>
+        <li>Relationship continuity across agents</li>
+        <li>Next-best-action from Fuel iX during live calls</li>
+      </ul>
+    </div>
+    <div class="problem-card" style="border-radius:0 10px 10px 0">
+      <div class="problem-card-label bad">Why it stalls without this solution</div>
+      <ul class="quote-list">
+        <li>OCTO cannot build intent-based lists without structured input data</li>
+        <li>Pre-call briefs are empty if nothing was captured from prior calls</li>
+        <li>Relationship continuity requires the CRM to hold the relationship</li>
+        <li>Fuel iX recommendations are only as good as the context fed in</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer>
+  <p>TELUS Digital CX Strategy · Outbound Sales Conversion Assessment · Manila on-site June 2026</p>
+  <span>·</span>
+  <p>Agatha Shibuya · Anthony Rainelli · Chelsea Chan · Squiggs Anderson</p>
+</footer>
+
+<script>
+  let current = 0;
+  const total = 5;
+  const tabs = document.querySelectorAll('.step-tab');
+  const panels = document.querySelectorAll('.step-panel');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const counter = document.getElementById('step-counter');
+
+  function goStep(n) {
+    tabs[current].classList.remove('active');
+    panels[current].classList.remove('active');
+    if (n > current) tabs[current].classList.add('done');
+    current = n;
+    tabs[current].classList.add('active');
+    tabs[current].classList.remove('done');
+    panels[current].classList.add('active');
+    btnPrev.style.display = current === 0 ? 'none' : '';
+    btnNext.textContent = current === total - 1 ? 'Start over →' : 'Next →';
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  function nextStep() {
+    if (current === total - 1) { goStep(0); return; }
+    goStep(current + 1);
+  }
+
+  function prevStep() {
+    if (current > 0) goStep(current - 1);
+  }
+</script>
+</body>
+</html>
