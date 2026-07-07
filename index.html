@@ -45,7 +45,7 @@
     font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -117,10 +117,10 @@
   }
   .hero-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(40px, 6vw, 76px);
-    font-weight: 800; line-height: 1.08;
-    letter-spacing: -.03em; max-width: 15ch;
-    margin-bottom: 26px; color: var(--text);
+    font-size: clamp(32px, 4.4vw, 54px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -.025em; max-width: 16ch;
+    margin-bottom: 24px; color: var(--text);
   }
   .hero-title strong {
     font-weight: 800;
@@ -129,8 +129,8 @@
     -webkit-text-fill-color: transparent; color: transparent;
   }
   .hero-sub {
-    font-size: 18px; color: var(--text-2); max-width: 620px;
-    line-height: 1.7; margin: 0 auto 34px;
+    font-size: 19px; color: var(--text-2); max-width: 640px;
+    line-height: 1.7; margin: 0 auto 40px;
   }
   .hero-cta {
     display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
@@ -177,7 +177,7 @@
     color: var(--text);
   }
   .section-sub {
-    font-size: 16px; color: var(--text-2); max-width: 580px;
+    font-size: 18px; color: var(--text-2); max-width: 620px;
     line-height: 1.7; margin-bottom: 56px;
   }
 
@@ -230,11 +230,11 @@
   }
   .edward-quote p {
     font-family: var(--serif);
-    font-size: 20px; color: var(--text); font-style: italic;
+    font-size: 22px; color: var(--text); font-style: italic;
     font-weight: 300; line-height: 1.55; margin-bottom: 14px;
   }
   .edward-quote cite {
-    font-size: 12px; color: var(--text-3); font-style: normal;
+    font-size: 13px; color: var(--text-3); font-style: normal;
     font-family: var(--mono);
   }
 
@@ -258,42 +258,54 @@
     font-size: 14px; margin-bottom: 6px; color: var(--green);
   }
   .outcome-pill-title {
-    font-size: 12px; font-weight: 500; color: var(--text);
-    margin-bottom: 3px;
+    font-size: 14.5px; font-weight: 600; color: var(--text);
+    margin-bottom: 4px;
   }
   .outcome-pill-desc {
-    font-size: 11px; color: var(--text-3); line-height: 1.5;
+    font-size: 13px; color: var(--text-3); line-height: 1.5;
   }
+
+  /* ── STORY : example intro (secondary title + card) ──── */
+  .example-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 44px;
+    align-items: center; margin-top: 14px;
+  }
+  .example-title {
+    font-family: var(--serif); font-size: 28px; font-weight: 400;
+    color: var(--text); margin-bottom: 14px; line-height: 1.2;
+  }
+  .example-summary { font-size: 16.5px; color: var(--text-2); line-height: 1.75; }
 
   /* ── STORY : character intro ─────────────────────────── */
   .james-card {
     display: flex; align-items: center; gap: 22px;
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px 28px; margin-top: 12px;
-    box-shadow: var(--shadow-sm);
+    border-radius: 14px; padding: 26px 30px;
+    box-shadow: var(--shadow-md);
   }
+  .example-intro .james-card { margin-top: 0; }
   .james-avatar {
-    width: 62px; height: 62px; border-radius: 50%; flex-shrink: 0;
+    width: 66px; height: 66px; border-radius: 50%; flex-shrink: 0;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     color: #fff; display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 23px; font-weight: 500;
+    font-family: var(--serif); font-size: 24px; font-weight: 500;
     box-shadow: 0 6px 16px rgba(75,40,109,0.28);
   }
   .james-intro-name {
-    font-family: var(--serif); font-size: 21px; color: var(--text);
+    font-family: var(--serif); font-size: 23px; color: var(--text);
     margin-bottom: 5px; font-weight: 500;
   }
   .james-intro-name span {
     color: var(--text-3); font-family: 'Inter', sans-serif;
-    font-size: 13px; font-weight: 400;
+    font-size: 14px; font-weight: 400;
   }
-  .james-intro-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.6; max-width: 560px; }
+  .james-intro-desc { font-size: 15px; color: var(--text-2); line-height: 1.6; max-width: 560px; }
   .james-chips { margin-top: 12px; }
   .james-chip {
-    display: inline-block; font-family: var(--mono); font-size: 10px;
+    display: inline-block; font-family: var(--mono); font-size: 11.5px;
     color: var(--text-2); background: var(--surface-2);
     border: 1px solid var(--border); border-radius: 20px;
-    padding: 4px 11px; margin: 0 6px 6px 0;
+    padding: 5px 12px; margin: 0 6px 7px 0;
   }
 
   /* ── STORY : spine + chapters ────────────────────────── */
@@ -317,7 +329,7 @@
   .chapter.now .chapter-node { border-color: var(--red); color: var(--red); }
   .chapter.win .chapter-node { border-color: var(--green); color: var(--green); }
   .chapter-kicker {
-    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600;
     letter-spacing: .12em; text-transform: uppercase;
     color: var(--green); margin-bottom: 9px;
   }
@@ -328,13 +340,13 @@
     color: var(--text); margin-bottom: 14px; max-width: 640px;
   }
   .chapter-lede {
-    font-size: 15px; color: var(--text-2); line-height: 1.7;
-    max-width: 620px; margin-bottom: 28px;
+    font-size: 17px; color: var(--text-2); line-height: 1.7;
+    max-width: 640px; margin-bottom: 28px;
   }
   .chapter-lede strong { color: var(--accent); font-weight: 600; }
   .sub-label {
-    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
-    letter-spacing: .1em; color: var(--text-3); margin: 28px 0 12px;
+    font-family: var(--mono); font-size: 12px; text-transform: uppercase;
+    letter-spacing: .1em; color: var(--text-3); margin: 28px 0 14px;
     display: flex; align-items: center; gap: 12px;
   }
   .sub-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -344,36 +356,77 @@
   body.anim .reveal { opacity: 0; transform: translateY(18px); }
   body.anim .reveal.in { opacity: 1; transform: none; }
 
-  /* ── HERO VISION (moved from context) ────────────────── */
-  .hero-vision { margin: 0 auto 8px; max-width: 760px; }
+  /* ── HERO VISION (moved from context — the key list) ─── */
+  .hero-vision { margin: 0 auto; max-width: 900px; }
   .hero-vision-label {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--green);
-    display: block; margin-bottom: 14px; text-align: center;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--green); font-weight: 600;
+    display: block; margin-bottom: 18px; text-align: center;
   }
-  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 9px 10px; justify-content: center; }
+  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
   .hero-vision li {
-    font-size: 12.5px; color: var(--text-2);
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 8px 13px;
-    display: flex; align-items: center; gap: 8px;
-    box-shadow: var(--shadow-sm);
+    font-size: 15.5px; font-weight: 500; color: var(--text);
+    background: var(--surface); border: 1px solid var(--accent-border);
+    border-radius: 12px; padding: 14px 20px;
+    display: flex; align-items: center; gap: 11px;
+    box-shadow: var(--shadow-md);
   }
-  .hero-vision li::before { content: '✓'; color: var(--green); font-size: 11px; font-weight: 600; }
+  .hero-vision li::before { content: '✓'; color: var(--green); font-size: 15px; font-weight: 700; }
 
   /* ── CHAT BUBBLES (customer quotes) ──────────────────── */
-  .chat { display: flex; flex-direction: column; gap: 10px; }
+  .chat { display: flex; flex-direction: column; gap: 11px; }
   .chat-bubble {
-    align-self: flex-start; max-width: 94%;
-    background: var(--accent-bg); border: 1px solid var(--accent-border);
-    color: var(--text); font-size: 13px; line-height: 1.5;
-    padding: 10px 14px; border-radius: 14px 14px 14px 4px;
+    align-self: flex-start; max-width: 96%;
+    background: linear-gradient(120deg, #7c53a5 0%, #4B286D 100%);
+    color: #fff; font-size: 15px; line-height: 1.5;
+    padding: 12px 16px; border-radius: 16px 16px 16px 4px;
+    box-shadow: 0 4px 12px rgba(75,40,109,0.18);
+  }
+
+  /* ── CHAT LOG (transcript as a conversation) ─────────── */
+  .chat-log {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 18px 20px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .chat-log-hdr {
+    font-size: 13px; font-family: var(--mono); color: var(--text-3);
+    display: flex; align-items: center; gap: 9px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .chat-msg { display: flex; gap: 10px; max-width: 84%; align-items: flex-end; }
+  .chat-msg.them { align-self: flex-start; }
+  .chat-msg.me { align-self: flex-end; flex-direction: row-reverse; }
+  .chat-avatar {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+  }
+  .chat-avatar.ag {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+  }
+  .chat-avatar.jm {
+    background: var(--surface-2); border: 1px solid var(--border-strong);
+    color: var(--text-2);
+  }
+  .chat-msg-bubble {
+    font-size: 15px; line-height: 1.55; padding: 11px 15px;
+  }
+  .chat-msg.them .chat-msg-bubble {
+    background: var(--surface-2); color: var(--text);
+    border-radius: 16px 16px 16px 4px;
+  }
+  .chat-msg.me .chat-msg-bubble {
+    background: linear-gradient(120deg, #7c53a5 0%, #4B286D 100%);
+    color: #fff; border-radius: 16px 16px 4px 16px;
+    box-shadow: 0 4px 12px rgba(75,40,109,0.18);
   }
 
   /* ── REASON LIST (why it stalls) ─────────────────────── */
   .reason-list { list-style: none; }
   .reason-list li {
-    font-size: 13px; color: var(--text-2); padding: 8px 0;
+    font-size: 15px; color: var(--text-2); padding: 9px 0;
     border-bottom: 1px solid var(--border);
     display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
   }
@@ -396,13 +449,13 @@
     border-radius: 8px; padding: 18px 20px;
   }
   .ba-label {
-    font-size: 10px; font-weight: 500; text-transform: uppercase;
-    letter-spacing: .1em; font-family: var(--mono); margin-bottom: 14px;
+    font-size: 12px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: .1em; font-family: var(--mono); margin-bottom: 16px;
   }
   .ba-label.said { color: var(--text-2); }
   .ba-label.recorded { color: var(--red); }
   .ba-item {
-    font-size: 12px; padding: 7px 0;
+    font-size: 14px; padding: 9px 0;
     border-bottom: 1px solid var(--border); color: var(--text-2);
     line-height: 1.5;
   }
@@ -430,18 +483,19 @@
   }
   .t-line:last-child { border-bottom: none; }
   .t-speaker {
-    font-size: 10px; font-weight: 500; font-family: var(--mono);
-    min-width: 52px; padding-top: 2px; color: var(--text-3);
+    font-size: 12px; font-weight: 500; font-family: var(--mono);
+    min-width: 56px; padding-top: 2px; color: var(--text-3);
   }
   .t-speaker.agent { color: var(--accent); }
-  .t-speech { font-size: 13px; color: var(--text-2); line-height: 1.55; }
-  .t-speech em {
-    font-style: normal; background: var(--amber-bg);
-    color: var(--amber); border-radius: 3px; padding: 0 4px;
-    border: 1px solid var(--amber-border);
+  .t-speech { font-size: 15px; color: var(--text-2); line-height: 1.55; }
+  .t-speech em, .chat-msg-bubble em {
+    font-style: normal; font-weight: 600;
+    background: var(--accent-bg); color: var(--accent);
+    border-radius: 4px; padding: 1px 6px;
+    border: 1px solid var(--accent-border);
   }
   .t-note {
-    font-size: 11px; color: var(--text-3); margin-top: 10px;
+    font-size: 13px; color: var(--text-3); margin-top: 12px;
     font-family: var(--mono);
   }
 
@@ -454,13 +508,13 @@
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 6px; padding: 12px 14px;
   }
-  .field-key { font-size: 10px; color: var(--text-3); margin-bottom: 4px; font-family: var(--mono); }
-  .field-val { font-size: 13px; font-weight: 500; color: var(--green); }
+  .field-key { font-size: 12px; color: var(--text-3); margin-bottom: 5px; font-family: var(--mono); }
+  .field-val { font-size: 15.5px; font-weight: 500; color: var(--green); }
 
   .confirm-banner {
     background: var(--accent-bg); border: 1px solid var(--accent-border);
     border-radius: 8px; padding: 14px 18px;
-    font-size: 13px; color: var(--accent); line-height: 1.6;
+    font-size: 15px; color: var(--accent); line-height: 1.6;
     display: flex; gap: 12px; align-items: flex-start;
   }
   .confirm-banner::before { content: '✓'; font-weight: 600; flex-shrink: 0; }
@@ -473,20 +527,20 @@
     overflow: hidden;
   }
   .flow-node {
-    flex: 1; padding: 16px 18px;
+    flex: 1; padding: 18px 20px;
     border-right: 1px solid var(--border);
-    font-size: 12px;
+    font-size: 14px;
   }
   .flow-node:last-child { border-right: none; }
   .flow-node.highlighted {
     background: var(--accent-bg); border-color: var(--accent-border);
   }
   .flow-node-label {
-    font-size: 10px; font-family: var(--mono); color: var(--text-3);
-    margin-bottom: 4px; text-transform: uppercase; letter-spacing: .06em;
+    font-size: 11.5px; font-family: var(--mono); color: var(--text-3);
+    margin-bottom: 5px; text-transform: uppercase; letter-spacing: .06em;
   }
   .flow-node.highlighted .flow-node-label { color: var(--accent); }
-  .flow-node-val { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+  .flow-node-val { font-size: 14px; color: var(--text-2); line-height: 1.5; }
   .flow-node.highlighted .flow-node-val { color: var(--text); }
   .flow-arrow {
     padding: 0 2px; color: var(--text-3); font-size: 14px; flex-shrink: 0;
@@ -494,8 +548,8 @@
 
   .pills-wrap { margin-bottom: 20px; }
   .pill {
-    display: inline-block; font-size: 11px; padding: 4px 10px;
-    border-radius: 20px; margin: 0 4px 6px 0; font-family: var(--mono);
+    display: inline-block; font-size: 13px; padding: 6px 13px;
+    border-radius: 20px; margin: 0 5px 7px 0; font-family: var(--mono);
   }
   .pill-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
   .pill-teal { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
@@ -510,14 +564,14 @@
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 6px; padding: 12px 14px;
   }
-  .brief-key { font-size: 10px; color: var(--text-3); margin-bottom: 4px; font-family: var(--mono); }
-  .brief-val { font-size: 13px; font-weight: 400; color: var(--text-2); }
+  .brief-key { font-size: 12px; color: var(--text-3); margin-bottom: 5px; font-family: var(--mono); }
+  .brief-val { font-size: 15.5px; font-weight: 400; color: var(--text-2); }
   .brief-val.warn { color: var(--amber); }
 
   .result-banner {
     background: var(--green-bg); border: 1px solid var(--green-border);
-    border-radius: 8px; padding: 16px 20px; margin-top: 20px;
-    font-size: 13px; color: var(--green); line-height: 1.7;
+    border-radius: 8px; padding: 18px 22px; margin-top: 20px;
+    font-size: 15px; color: var(--green); line-height: 1.7;
   }
 
   /* ── FOOTER ───────────────────────────────────────────── */
@@ -534,6 +588,8 @@
     .hero-stats { flex-wrap: wrap; gap: 28px; }
     .problem-grid, .ba-grid, .fields-grid, .pre-brief { grid-template-columns: 1fr; }
     .split, .split .fields-grid { grid-template-columns: 1fr; }
+    .example-intro { grid-template-columns: 1fr; gap: 24px; }
+    .chat-msg { max-width: 92%; }
     .solution-outcomes { grid-template-columns: 1fr 1fr; }
     .flow-strip { flex-direction: column; }
     .flow-node { border-right: none; border-bottom: 1px solid var(--border); }
@@ -611,18 +667,22 @@
   </div>
 
   <!-- Example customer, introduced up front for context -->
-  <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px">A running example</p>
-  <div class="james-card reveal">
-    <div class="james-avatar">JM</div>
-    <div>
-      <div class="james-intro-name">James Martin <span>· Calgary, AB</span></div>
-      <div class="james-intro-desc">To make it concrete, we follow one customer across the four stages below. James is a typical prospect on a standard outbound list — on the call he gives up everything the business would need to win him. The only question is whether the operation keeps it.</div>
-      <div class="james-chips">
-        <span class="james-chip">With Bell · 6 mo left</span>
-        <span class="james-chip">Night shifts</span>
-        <span class="james-chip">Hockey fan</span>
-        <span class="james-chip">Wife: home internet</span>
-        <span class="james-chip">Price-sensitive</span>
+  <div class="example-intro">
+    <div class="example-intro-text">
+      <h3 class="example-title">A running example</h3>
+      <p class="example-summary">To explain the recommendation, we're exemplifying the ideal implementation by following one customer across the four stages below. James is a typical prospect on a standard outbound list — on the call he gives up everything the business would need to win him. The only question is whether the operation keeps it.</p>
+    </div>
+    <div class="james-card reveal">
+      <div class="james-avatar">JM</div>
+      <div>
+        <div class="james-intro-name">James Martin <span>· Calgary, AB</span></div>
+        <div class="james-chips">
+          <span class="james-chip">With Bell · 6 mo left</span>
+          <span class="james-chip">Night shifts</span>
+          <span class="james-chip">Hockey fan</span>
+          <span class="james-chip">Wife: home internet</span>
+          <span class="james-chip">Price-sensitive</span>
+        </div>
       </div>
     </div>
   </div>
@@ -648,8 +708,8 @@
         </div>
         <div class="ba-card">
           <div class="ba-label recorded">What gets recorded in the system</div>
-          <div class="ba-item" style="font-family:var(--mono);font-size:12px;color:var(--text-3)">no sale</div>
-          <div class="ba-item" style="font-family:var(--mono);font-size:12px;color:var(--text-3)">call back later</div>
+          <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">no sale</div>
+          <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">call back later</div>
           <div class="ba-item empty">&nbsp;</div>
           <div class="ba-item empty">&nbsp;</div>
           <div class="ba-item empty">&nbsp;</div>
@@ -679,18 +739,18 @@
       <div class="split">
         <div class="split-col">
           <div class="sub-label">The conversation</div>
-          <div class="transcript">
-            <div class="transcript-hdr"><div class="rec-dot"></div>Outbound call — James Martin, Calgary AB</div>
-            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">Hi James, calling from TELUS. Got a moment?</span></div>
-            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Sure, what's this about?</span></div>
-            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">We have an offer on mobile plans — thought it might suit you.</span></div>
-            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Actually I'm with <em>Bell</em> right now. Got about <em>6 months left</em> on my contract.</span></div>
-            <div class="t-line"><span class="t-speaker agent">Agent</span><span class="t-speech">And what about home internet — do you have that with them too?</span></div>
-            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">No, my <em>wife</em> handles that side. She's been looking around. We like to watch <em>hockey</em>, so a good sports package matters.</span></div>
-            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Pricing is the main thing — <em>a bit high</em> for what I'm seeing.</span></div>
-            <div class="t-line"><span class="t-speaker">James</span><span class="t-speech">Also — <em>don't call before noon</em>. I'm on night shifts.</span></div>
+          <div class="chat-log">
+            <div class="chat-log-hdr"><div class="rec-dot"></div>Outbound call — James Martin, Calgary AB</div>
+            <div class="chat-msg me"><div class="chat-avatar ag">T</div><div class="chat-msg-bubble">Hi James, calling from TELUS. Got a moment?</div></div>
+            <div class="chat-msg them"><div class="chat-avatar jm">JM</div><div class="chat-msg-bubble">Sure, what's this about?</div></div>
+            <div class="chat-msg me"><div class="chat-avatar ag">T</div><div class="chat-msg-bubble">We have an offer on mobile plans — thought it might suit you.</div></div>
+            <div class="chat-msg them"><div class="chat-avatar jm">JM</div><div class="chat-msg-bubble">Actually I'm with <em>Bell</em> right now. Got about <em>6 months left</em> on my contract.</div></div>
+            <div class="chat-msg me"><div class="chat-avatar ag">T</div><div class="chat-msg-bubble">And what about home internet — do you have that with them too?</div></div>
+            <div class="chat-msg them"><div class="chat-avatar jm">JM</div><div class="chat-msg-bubble">No, my <em>wife</em> handles that side. She's been looking around. We like to watch <em>hockey</em>, so a good sports package matters.</div></div>
+            <div class="chat-msg them"><div class="chat-avatar jm">JM</div><div class="chat-msg-bubble">Pricing is the main thing — <em>a bit high</em> for what I'm seeing.</div></div>
+            <div class="chat-msg them"><div class="chat-avatar jm">JM</div><div class="chat-msg-bubble">Also — <em>don't call before noon</em>. I'm on night shifts.</div></div>
           </div>
-          <p class="t-note">↑ amber highlights = structured facts available from transcript analysis</p>
+          <p class="t-note">↑ purple highlights = structured facts available from transcript analysis</p>
         </div>
         <div class="split-col">
           <div class="sub-label">What the co-pilot captures</div>
@@ -729,7 +789,7 @@
           <div class="flow-node-val">Context surfaced at the moment of connect</div>
         </div>
       </div>
-      <p style="font-size:12px;color:var(--text-3);margin-bottom:12px;font-family:var(--mono)">What OCTO now knows about James:</p>
+      <p style="font-size:14px;color:var(--text-3);margin-bottom:12px;font-family:var(--mono)">What OCTO now knows about James:</p>
       <div class="pills-wrap">
         <span class="pill pill-amber">Bell — 6 months left</span>
         <span class="pill pill-amber">Declined: price</span>
@@ -737,7 +797,7 @@
         <span class="pill pill-teal">Cross-sell: home internet</span>
         <span class="pill pill-teal">Interest: sports TV</span>
       </div>
-      <p style="font-size:12px;color:var(--text-2);line-height:1.6">OCTO scores James's intent: re-contact at ~5 months when the Bell contract is near expiry. Route to an FFH-trained agent. Lead with value — the sports bundle — not price.</p>
+      <p style="font-size:15px;color:var(--text-2);line-height:1.6">OCTO scores James's intent: re-contact at ~5 months when the Bell contract is near expiry. Route to an FFH-trained agent. Lead with value — the sports bundle — not price.</p>
     </div>
 
     <!-- Chapter 4 — the payoff / the win -->
