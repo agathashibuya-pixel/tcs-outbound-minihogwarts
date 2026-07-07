@@ -73,56 +73,91 @@
   }
   .nav-links a:hover { color: var(--accent); }
 
-  /* ── HERO ─────────────────────────────────────────────── */
+  /* ── HERO (centered) ──────────────────────────────────── */
   .hero {
     min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 80px 60px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 96px 32px 72px;
     position: relative; overflow: hidden;
     background:
-      radial-gradient(900px 600px at 100% -10%, rgba(75,40,109,0.08) 0%, transparent 60%),
-      radial-gradient(700px 500px at -10% 110%, rgba(102,204,0,0.07) 0%, transparent 55%),
+      radial-gradient(1000px 720px at 50% 18%, rgba(124,83,165,0.12) 0%, transparent 55%),
+      radial-gradient(760px 520px at 88% 92%, rgba(102,204,0,0.05) 0%, transparent 55%),
+      radial-gradient(620px 420px at 10% 96%, rgba(75,40,109,0.06) 0%, transparent 55%),
       linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
   }
+  /* soft concentric halo behind the headline */
   .hero::before {
     content: '';
-    position: absolute; top: -180px; right: -120px;
-    width: 560px; height: 560px;
-    background: radial-gradient(circle, rgba(75,40,109,0.10) 0%, transparent 70%);
-    pointer-events: none;
+    position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%);
+    width: min(1200px, 120vw); aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,83,165,0.10) 0%, rgba(124,83,165,0.05) 38%, transparent 62%);
+    pointer-events: none; z-index: 0;
   }
-  .hero-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
-    color: var(--green); text-transform: uppercase; margin-bottom: 22px;
-    font-family: var(--mono);
+  .hero::after {
+    content: '';
+    position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%);
+    width: min(820px, 86vw); aspect-ratio: 1; border-radius: 50%;
+    border: 1px solid rgba(124,83,165,0.10);
+    pointer-events: none; z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 999px; padding: 6px 16px 6px 6px;
+    font-size: 13px; color: var(--text-2); margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-badge-tag {
+    background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: .04em;
+    padding: 4px 10px; border-radius: 999px;
   }
   .hero-title {
-    font-family: var(--serif);
-    font-size: clamp(44px, 6.4vw, 80px);
-    font-weight: 300; line-height: 1.06;
-    letter-spacing: -.02em; max-width: 860px;
-    margin-bottom: 30px; color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -.03em; max-width: 15ch;
+    margin-bottom: 26px; color: var(--text);
   }
-  .hero-title strong { font-weight: 500; color: var(--accent); font-style: italic; }
+  .hero-title strong {
+    font-weight: 800;
+    background: linear-gradient(100deg, #5b8def 0%, #7c3aed 48%, #4B286D 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
   .hero-sub {
-    font-size: 18px; color: var(--text-2); max-width: 540px;
-    line-height: 1.7; margin-bottom: 52px;
+    font-size: 18px; color: var(--text-2); max-width: 620px;
+    line-height: 1.7; margin: 0 auto 34px;
   }
-  .hero-stats {
-    display: flex; gap: 56px; margin-top: 8px;
+  .hero-cta {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 44px;
   }
-  .stat-item {}
-  .stat-num {
-    font-size: 40px; font-weight: 300; letter-spacing: -.03em;
-    color: var(--accent); font-family: var(--serif);
+  .btn-hero {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 30px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; font-family: 'Inter', sans-serif;
+    text-decoration: none; cursor: pointer; transition: all .15s;
   }
-  .stat-num span { color: var(--green); }
-  .stat-label { font-size: 12px; color: var(--text-3); margin-top: 4px; font-weight: 500; }
+  .btn-hero.primary {
+    background: var(--accent); color: #fff; border: 1px solid var(--accent);
+    box-shadow: 0 10px 24px rgba(75,40,109,0.28);
+  }
+  .btn-hero.primary:hover { background: #3a1f56; transform: translateY(-1px); }
+  .btn-hero.outline {
+    background: var(--surface); color: var(--accent);
+    border: 1px solid var(--accent-border);
+  }
+  .btn-hero.outline:hover { border-color: var(--accent); transform: translateY(-1px); }
+
   .hero-scroll {
-    position: absolute; bottom: 36px; left: 80px;
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     font-size: 11px; color: var(--text-3); letter-spacing: .08em;
     font-family: var(--mono);
-    display: flex; align-items: center; gap: 10px;
+    display: flex; align-items: center; gap: 10px; z-index: 1;
   }
   .hero-scroll::before {
     content: ''; width: 28px; height: 1px; background: var(--border-strong);
@@ -310,13 +345,13 @@
   body.anim .reveal.in { opacity: 1; transform: none; }
 
   /* ── HERO VISION (moved from context) ────────────────── */
-  .hero-vision { margin: 2px 0 34px; max-width: 700px; }
+  .hero-vision { margin: 0 auto 8px; max-width: 760px; }
   .hero-vision-label {
     font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
     text-transform: uppercase; color: var(--green);
-    display: block; margin-bottom: 12px;
+    display: block; margin-bottom: 14px; text-align: center;
   }
-  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 9px 10px; }
+  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 9px 10px; justify-content: center; }
   .hero-vision li {
     font-size: 12.5px; color: var(--text-2);
     background: var(--surface); border: 1px solid var(--border);
@@ -527,10 +562,20 @@
 
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <section class="hero" id="home">
-  <div class="hero-eyebrow">Conversion opportunities — outbound sales</div>
+  <div class="hero-badge">
+    <span class="hero-badge-tag">TELUS CSS</span>
+    Conversion opportunities — outbound sales
+  </div>
   <h1 class="hero-title">
-    Turning <strong>conversations</strong><br>into usable data
+    Turning <strong>conversations</strong> into usable data
   </h1>
+  <p class="hero-sub">
+    A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
+  </p>
+  <div class="hero-cta">
+    <a href="#solution" class="btn-hero primary">Explore the solution</a>
+    <a href="#walkthrough" class="btn-hero outline">See the walkthrough</a>
+  </div>
   <div class="hero-vision">
     <span class="hero-vision-label">What the program already envisions</span>
     <ul>
@@ -539,23 +584,6 @@
       <li>Relationship continuity across agents</li>
       <li>Next-best-action from Fuel iX during live calls</li>
     </ul>
-  </div>
-  <p class="hero-sub">
-    A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
-  </p>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">33<span>%</span></div>
-      <div class="stat-label">conversion — BoB warm call</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2–4<span>%</span></div>
-      <div class="stat-label">conversion — standard cold call</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4M</div>
-      <div class="stat-label">outbound calls per month</div>
-    </div>
   </div>
   <div class="hero-scroll">scroll to explore</div>
 </section>
@@ -607,7 +635,7 @@
   </div>
 
   <!-- ── THE WALKTHROUGH (one-pager) ───────────────────── -->
-  <div class="story">
+  <div class="story" id="walkthrough">
     <!-- Chapter 1 — the current state -->
     <div class="chapter now reveal">
       <div class="chapter-node">01</div>
