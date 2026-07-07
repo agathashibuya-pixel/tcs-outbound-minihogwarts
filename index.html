@@ -119,8 +119,8 @@
     font-family: 'Inter', sans-serif;
     font-size: clamp(32px, 4.4vw, 54px);
     font-weight: 800; line-height: 1.1;
-    letter-spacing: -.025em; max-width: 16ch;
-    margin-bottom: 24px; color: var(--text);
+    letter-spacing: -.025em; max-width: none;
+    margin-bottom: 22px; color: var(--text);
   }
   .hero-title strong {
     font-weight: 800;
@@ -128,9 +128,15 @@
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
   }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+    align-items: center; width: 100%; max-width: 1080px;
+    margin: 8px auto 0; text-align: left;
+  }
+  .hero-copy { min-width: 0; }
   .hero-sub {
-    font-size: 19px; color: var(--text-2); max-width: 640px;
-    line-height: 1.7; margin: 0 auto 40px;
+    font-size: 19px; color: var(--text-2); max-width: 520px;
+    line-height: 1.7; margin: 0;
   }
   .hero-cta {
     display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
@@ -379,14 +385,14 @@
   body.anim .reveal { opacity: 0; transform: translateY(18px); }
   body.anim .reveal.in { opacity: 1; transform: none; }
 
-  /* ── HERO VISION (moved from context — the key list) ─── */
-  .hero-vision { margin: 0 auto; max-width: 900px; }
+  /* ── HERO VISION (right column — the key list) ────────── */
+  .hero-vision { margin: 0; max-width: none; }
   .hero-vision-label {
     font-family: var(--mono); font-size: 13px; letter-spacing: .14em;
     text-transform: uppercase; color: var(--green); font-weight: 600;
-    display: block; margin-bottom: 18px; text-align: center;
+    display: block; margin-bottom: 18px; text-align: left;
   }
-  .hero-vision ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .hero-vision ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .hero-vision li {
     font-size: 15.5px; font-weight: 500; color: var(--text);
     background: var(--surface); border: 1px solid var(--accent-border);
@@ -614,6 +620,8 @@
     .example-intro { grid-template-columns: 1fr; gap: 24px; }
     .chat-msg { max-width: 92%; }
     .cs-block { padding: 32px 22px; margin: 44px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-sub { max-width: none; }
     .solution-outcomes { grid-template-columns: 1fr 1fr; }
     .flow-strip { flex-direction: column; }
     .flow-node { border-right: none; border-bottom: 1px solid var(--border); }
@@ -643,20 +651,24 @@
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <section class="hero" id="home">
   <div class="hero-badge">Our in-flight solutions <span class="hero-badge-tag">01</span></div>
-  <h1 class="hero-title">
-    Turning conversations into <strong>usable data</strong>
-  </h1>
-  <p class="hero-sub">
-    A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
-  </p>
-  <div class="hero-vision">
-    <span class="hero-vision-label">What the program already envisions</span>
-    <ul>
-      <li>Intent-based lists via OCTO (who to call, what to offer, when)</li>
-      <li>Pre-call brief surfaced automatically at connect</li>
-      <li>Relationship continuity across agents</li>
-      <li>Next-best-action from Fuel iX during live calls</li>
-    </ul>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        Turning conversations into <strong>usable data</strong>
+      </h1>
+      <p class="hero-sub">
+        A strategic assessment of how TELUS CSS outbound can move from transactional cold-calling to relationship-based, intelligence-driven selling.
+      </p>
+    </div>
+    <div class="hero-vision">
+      <span class="hero-vision-label">What the program already envisions</span>
+      <ul>
+        <li>Intent-based lists via OCTO (who to call, what to offer, when)</li>
+        <li>Pre-call brief surfaced automatically at connect</li>
+        <li>Relationship continuity across agents</li>
+        <li>Next-best-action from Fuel iX during live calls</li>
+      </ul>
+    </div>
   </div>
 </section>
 
