@@ -238,11 +238,15 @@
     font-family: var(--mono);
   }
 
-  /* ── CURRENT STATE SECTION (distinct problem treatment) ─ */
-  #current-state {
+  /* ── CURRENT STATE (distinct problem panel) ──────────── */
+  .cs-block {
     background:
-      radial-gradient(900px 500px at 100% 0%, rgba(194,59,59,0.05) 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(194,59,59,0.06) 0%, transparent 55%),
       linear-gradient(180deg, #f1eef5 0%, #eae6f0 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 56px 56px;
+    margin: 64px 0;
   }
   #current-state .section-title { max-width: 18ch; }
   .cs-eyebrow { color: var(--red); }
@@ -609,6 +613,7 @@
     .split, .split .fields-grid { grid-template-columns: 1fr; }
     .example-intro { grid-template-columns: 1fr; gap: 24px; }
     .chat-msg { max-width: 92%; }
+    .cs-block { padding: 32px 22px; margin: 44px 0; }
     .solution-outcomes { grid-template-columns: 1fr 1fr; }
     .flow-strip { flex-direction: column; }
     .flow-node { border-right: none; border-bottom: 1px solid var(--border); }
@@ -655,46 +660,6 @@
   </div>
 </section>
 
-<!-- ── CURRENT STATE (the problem — distinct treatment) ───── -->
-<section id="current-state">
-  <div class="section-eyebrow cs-eyebrow">The current state · today</div>
-  <h2 class="section-title">Every call disappears into a recording nobody uses</h2>
-  <p class="section-sub">Every call contains rich customer context — but today nearly all of it is lost the moment the call ends. Forty-five days later, a different agent calls the same person with no context. The customer remembers. The agent doesn't.</p>
-  <div class="ba-grid">
-    <div class="ba-card">
-      <div class="ba-label said">What a customer actually says</div>
-      <div class="chat">
-        <div class="chat-bubble">I'm with Bell, 6 months left on contract</div>
-        <div class="chat-bubble">Price is a bit high for me right now</div>
-        <div class="chat-bubble">Don't call me before noon, I work nights</div>
-        <div class="chat-bubble">My wife might be interested in home internet</div>
-        <div class="chat-bubble">I love watching sports, especially hockey</div>
-      </div>
-    </div>
-    <div class="ba-card">
-      <div class="ba-label recorded">What gets recorded in the system</div>
-      <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">no sale</div>
-      <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">call back later</div>
-      <div class="ba-item empty">&nbsp;</div>
-      <div class="ba-item empty">&nbsp;</div>
-      <div class="ba-item empty">&nbsp;</div>
-    </div>
-  </div>
-  <div class="edward-quote">
-    <p>"Right now our disposition codes suck... sale, no sale, call back later, not interested. It doesn't tell me anything about the customer."</p>
-    <cite>— Edward Zhao, Director Global Sales Operations</cite>
-  </div>
-  <div class="stall-card">
-    <div class="sub-label">Why it stalls without this solution</div>
-    <ul class="reason-list">
-      <li>OCTO cannot build intent-based lists without structured input data</li>
-      <li>Pre-call briefs are empty if nothing was captured from prior calls</li>
-      <li>Relationship continuity requires the CRM to hold the relationship</li>
-      <li>Fuel iX recommendations are only as good as the context fed in</li>
-    </ul>
-  </div>
-</section>
-
 <!-- ── SOLUTION ───────────────────────────────────────────── -->
 <section id="solution">
   <div class="section-eyebrow">The solution</div>
@@ -721,6 +686,46 @@
       <div class="outcome-pill-icon">◎</div>
       <div class="outcome-pill-title">Next-best-action AI</div>
       <div class="outcome-pill-desc">Fuel iX guidance mid-call from live transcripts</div>
+    </div>
+  </div>
+
+  <!-- ── CURRENT STATE (the problem — distinct panel) ──── -->
+  <div id="current-state" class="cs-block">
+    <div class="section-eyebrow cs-eyebrow">The current state · today</div>
+    <h2 class="section-title">Every call disappears into a recording nobody uses</h2>
+    <p class="section-sub">Every call contains rich customer context — but today nearly all of it is lost the moment the call ends. Forty-five days later, a different agent calls the same person with no context. The customer remembers. The agent doesn't.</p>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <div class="ba-label said">What a customer actually says</div>
+        <div class="chat">
+          <div class="chat-bubble">I'm with Bell, 6 months left on contract</div>
+          <div class="chat-bubble">Price is a bit high for me right now</div>
+          <div class="chat-bubble">Don't call me before noon, I work nights</div>
+          <div class="chat-bubble">My wife might be interested in home internet</div>
+          <div class="chat-bubble">I love watching sports, especially hockey</div>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-label recorded">What gets recorded in the system</div>
+        <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">no sale</div>
+        <div class="ba-item" style="font-family:var(--mono);font-size:14px;color:var(--text-3)">call back later</div>
+        <div class="ba-item empty">&nbsp;</div>
+        <div class="ba-item empty">&nbsp;</div>
+        <div class="ba-item empty">&nbsp;</div>
+      </div>
+    </div>
+    <div class="edward-quote">
+      <p>"Right now our disposition codes suck... sale, no sale, call back later, not interested. It doesn't tell me anything about the customer."</p>
+      <cite>— Edward Zhao, Director Global Sales Operations</cite>
+    </div>
+    <div class="stall-card">
+      <div class="sub-label">Why it stalls without this solution</div>
+      <ul class="reason-list">
+        <li>OCTO cannot build intent-based lists without structured input data</li>
+        <li>Pre-call briefs are empty if nothing was captured from prior calls</li>
+        <li>Relationship continuity requires the CRM to hold the relationship</li>
+        <li>Fuel iX recommendations are only as good as the context fed in</li>
+      </ul>
     </div>
   </div>
 
